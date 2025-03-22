@@ -1,0 +1,47 @@
+<!-- views/header.ejs -->
+<header>
+    <div class="logo">
+        <a href="/"><img src="/images/939280.png" alt="Rare Soccer Jerseys" class="logo-image"></a>
+    </div>
+    
+    <% if (errorMessages.length > 0) { %>
+        <% errorMessages.forEach(message => { %>
+            <div class="flash-message error">
+                <%= message %>
+                <button onclick="this.parentElement.style.display='none'">x</button>
+            </div>
+        <% }) %>
+    <% } %>
+    
+    <% if (successMessages.length > 0) { %>
+        <% successMessages.forEach(message => { %>
+            <div class="flash-message success">
+                <%= message %>
+                <button onclick="this.parentElement.style.display='none'">x</button>
+            </div>
+        <% }) %>
+    <% } %> 
+
+    <nav class="navbar">
+        <ul>
+            <!-- <li><a href="/">Home</a></li> -->
+            <li><a href="/items">Browse</a></li>
+            <li><a href="/items/new">Sell</a></li>
+
+            <% if (!user) { %>
+                <li><a href="/users/new">Sign Up</a></li> 
+                <li><a href="/users/login">Login</a></li>
+            <% } else { %>
+                <li><a href="/users/profile">My Account</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+            <% } %>
+        </ul>
+    </nav>
+    
+    <form class="search-bar" action="/items/search" method="POST">
+        <input type="text" name="search" placeholder="Search jerseys...">
+        <button type="submit">
+        
+        </button>
+    </form>
+</header>

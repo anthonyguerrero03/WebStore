@@ -1,0 +1,21 @@
+<!-- views/error.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= error.status %> Error</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+
+    <div class="container">
+        <h1><%= error.status %> Error</h1>
+        <p><%= error.message %></p>
+        <a href="/" class="btn">Return to Home</a>
+    </div>
+
+    <%- include('./partials/footer') %>
+</body>
+</html>

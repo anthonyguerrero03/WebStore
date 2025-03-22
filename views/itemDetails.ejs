@@ -1,0 +1,10 @@
+ <!-- views/itemDetails.ejs -->
+<%- include('./partials/header.ejs') %>
+<div class="content">
+    <h3>Item Details</h3>
+    <h4><%= item.name %></h4>
+    <img src="<%= item.image %>" alt="<%= item.name %>" class="item-image">
+    <p>Price: $<%= item.price %></p>
+    <button><a href="/items">Back to Browse</a></button>
+</div>
+<%- include('./partials/footer.ejs') %>

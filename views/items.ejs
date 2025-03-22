@@ -1,0 +1,43 @@
+<!-- views/items.ejs  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rare Soccer Jerseys - Items</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header.ejs') %>
+
+    <!-- Items Page Content -->
+    <main>
+        <section class="items-list">
+            <h2>Available Jerseys</h2>
+            <% if (items && items.length > 0) { %>
+                <% items.forEach(item => { %>
+                    <div class="item">
+                        <a href="/items/<%= item.id %>">
+                            <% if (item.image) { %>
+                                <img src="/images/<%= item.image %>" alt="<%= item.title %>" onerror="this.src='/images/placeholder.jpg'">
+                            <% } else { %>
+                                <img src="/images/placeholder.jpg" alt="Placeholder Image">
+                            <% } %>
+                            <h3><%= item.title || item.name %></h3>
+                            <p>Condition: <%= item.condition %></p>
+                            <p>Price: $<%= item.price.toFixed(2) %></p>
+                            <p>Offers: <%= item.offersReceived || 0 %> offers received</p>
+                        </a>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No jerseys are currently available.</p>
+            <% } %>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

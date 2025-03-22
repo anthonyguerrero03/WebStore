@@ -1,0 +1,58 @@
+<!-- views/edit.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Item</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+        <h1>Edit Item</h1>
+        <form action="/items/<%= item.id %>/edit" method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="<%= item.title || item.name %>" required>
+            </div>
+            
+            <!-- <div class="form-group">
+                <label for="seller">Seller:</label>
+                <input type="text" id="seller" name="seller" value="<%= item.seller %>" required>
+            </div> -->
+            
+            <div class="form-group">
+                <label for="condition">Condition:</label>
+                <select id="condition" name="condition" required>
+                    <option value="New" <%= item.condition === 'New' ? 'selected' : '' %>>New</option>
+                    <option value="Like New" <%= item.condition === 'Like New' ? 'selected' : '' %>>Like New</option>
+                    <option value="Used" <%= item.condition === 'Used' ? 'selected' : '' %>>Used</option>
+                    <option value="Fair" <%= item.condition === 'Fair' ? 'selected' : '' %>>Fair</option>
+                    <option value="Poor" <%= item.condition === 'Poor' ? 'selected' : '' %>>Poor</option>
+                </select>
+            
+            </div>
+            
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" value="<%= item.price %>" step="0.01" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="details">Description:</label>
+                <textarea id="details" name="details" required><%= item.details %></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image">
+            </div>
+            
+            <button type="submit">Save Changes</button>
+        </form>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>

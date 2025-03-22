@@ -1,0 +1,57 @@
+<!-- views/new.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rare Soccer Jerseys - Sell</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+
+    <main>
+        <section class="new-item">
+            <div class="form-container">
+                <h2>Sell A Jersey!</h2>
+                <p>Form</p>
+                <form action="/items" method="POST" enctype="multipart/form-data">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                    
+                   <!-- <label for="seller">Seller:</label>
+                    <input type="text" id="seller" name="seller" required>-->
+                    
+                 <label for="condition">Condition:</label>
+                 <select id="condition" name="condition" required>
+                    <option value="" disabled selected>Select Condition</option> 
+                    <option value="New">New</option>
+                    <option value="Like New">Like New</option>
+                    <option value="Used">Used</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Poor">Poor</option>
+                </select>
+                    
+                    <label for="price">Price:</label>
+                    <input type="number" id="price" name="price" step="0.01" required>
+                    
+                    <label for="details">Details:</label>
+                    <textarea id="details" name="details" rows="4" required></textarea>
+                    
+                    <label for="image">Image:</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="info-container">
+                <h3>Why Sell Your Jerseys With Us?</h3>
+                <p>We provide a seamless platform for you to list your jerseys and connect with buyers. Our easy-to-use interface ensures that your listing gets noticed quickly, and our secure payment system protects your transactions.</p>
+                <p>Join our community of sellers and start earning money for your rare soccer jerseys today!</p>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

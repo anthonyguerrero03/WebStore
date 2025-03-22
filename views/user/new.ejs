@@ -1,0 +1,36 @@
+<!-- views/users/new.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<%- include('../partials/header') %>
+
+<main>
+    <section>
+        <h2>Sign Up</h2>
+        <form action="/users/new" method="POST">
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName" required />
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName" required />
+            
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required />
+            
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required />
+            
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>
+</body>
+</html>
